@@ -114,10 +114,7 @@ def bankproblem():
     print("Best Route (bags):", [df['Bag'].iloc[i] for i in best_route])
     print("Best Value:", best_value)
 
-    print(best_route)
-    print(routes)
-    print(route_values)
-    '''
+
     #绘图
     plt.plot(range(1,max_iterations + 1),best_value_all,marker = 'o')
     plt.xlabel('Iterations')
@@ -126,17 +123,19 @@ def bankproblem():
     plt.show()
 
 
-    for k,route in enumerate(routes):
-        G = nx.DiGraph()
-        edges = [(route[i],route[i+1]) for i in range(len(route) - 1)]
-        G.add_edges_from(edges)
+    G = nx.DiGraph()
+    edges = [(best_route[i], best_route[i + 1]) for i in range(len(best_route) - 1)]
+    G.add_edges_from(edges)
+    start_node = best_route[0]
+    end_node = best_route[-1]
 
-        plt.figure(figsize=(10,6))
-        pos = nx.spring_layout(G)
-        nx.draw_networkx(G,pos,with_labels=True,node_size = 200, node_color='lightblue',font_color='black')
-        plt.title(f'Ant {k+1} Path')
-        plt.show()
-    '''
+
+    # 绘制最佳路径
+    plt.figure(figsize=(10, 6))
+    pos = nx.spring_layout(G)
+    nx.draw_networkx(G, pos, with_labels=True, node_size=300, node_color='lightblue', font_color='black')
+    plt.title('Best Path')
+    plt.show()
 
 
 
