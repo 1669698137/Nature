@@ -1,0 +1,27 @@
+在如今的社会中，如何更高效的分配资源，将利益最大化是优化问题的重点。例如在银行问题中，如何保证运输的钱袋weight不超过最大载重量并且需要让钱袋value尽可能大。
+ACO是一种受到自然界中蚂蚁觅食寻路为启发的群体优化算法。蚂蚁会在路径上留下Pheromone来标记已经探索过的路线，并且根据信息素浓度来选择路径，从而能够找到最优的路线。在本report中，我将使用Ant Colony Optimization为银行设计一种装载方案,使得货车能够在不超载的情况下携带更多value的钱袋。
+本文的结构为1.INTRODUCTION2.Literature Review3.Method4.Description of Results5.References
+
+
+关于蚁群算法由来，在20世纪五十年代法国的昆虫学家皮埃尔[1]发现了有种白蚁会对某种刺激做出反应，这种反应将会产生新的刺激给其他白蚁，这样就能与其他白蚁之间建立联系。之后Deneubourg 等人研究了蚂蚁产生的信息素和蚂蚁如何跟踪信息素的行为。通过一项被称为“双桥”实验中，得到了蚂蚁会偏向于信息素浓度高的桥，最后将会汇聚于同一座桥的结论。[2]
+蚁群算法在解决bank problem时具备全局搜索能力，能够避免陷入局部最优解，并且在多次迭代后有较大的概率找到全局最优解。
+
+除了蚁群算法，还有
+动态规划算法（Dynamic Programming）贪心算法（Greedy Algorithm）遗传算法（Genetic Algorithm）深度优先搜索（Depth First Search, DFS）模拟退火算法（Simulated Annealing）
+
+Dynamic Programming是由数学家理查德·贝尔曼在20世纪50年代提出的。[3]动态规划算法的时间和空间复杂度较高，在面对大规模的bank problem时会出现内存溢出，运行缓慢等问题。
+
+Greedy Algorithm是一种组合优化中的经典算法，能够解决最小生成树问题。Greedy Algorithm能够作出局部最优选择，但是并不总是有全局最优解。[4]所以贪心算法对于背包问题，难以全面考虑问题，会得出局部最优解。
+
+Genetic Algorithm是基于遗传学选择原理优化难题搜索工具的方法，遗传算法可以通过路径编码找出最短路径。[5]但是遗传算法在复杂度较高的情况下，得到最优解需要的迭代次数较多，速度慢。同时遗传算法对bank problem的参数选择较为敏感，得到的结果会不理想。
+
+Simulated Annealing是Kirkpatrick、Gelett等人 提出的一种概率方法，它能用来查找可能具有多个局部最小值的成本函数的全局最小值。它是从固体被缓慢冷却的过程中得到启发的。[6]模拟退火是逐步减少“温度”来找最优解的，是一种随机算法，在bank problem中受初始温度和退火过程的影响，可能每次运行的结果都不同，且可能只能得到近似解。
+
+
+
+[1]Grassé, P.-P. (1946). Les insectes dans leur univers. Paris, France: Palais de la Découverte.
+[2]Deneubourg, J.-L., Aron, S., Goss, S., & Pasteels, J.-M. (1990). The self-organizing exploratory pattern of the Argentine ant. Journal of Insect Behavior, 3(2), 159-168.
+[3]Bellman, R. (1957). Dynamic Programming. Princeton University Press.
+[4]Vince, A. (2002). A framework for the greedy algorithm. Discrete Applied Mathematics, 121(1-3), 247-260.
+[5]Lambora, A., Gupta, K., & Chopra, K. (2019, February). Genetic algorithm-A literature review. In 2019 international conference on machine learning, big data, cloud and parallel computing (COMITCon) (pp. 380-384). IEEE.
+[6]Bertsimas, D., & Tsitsiklis, J. (1993). Simulated annealing. Statistical science, 8(1), 10-15.
